@@ -12,7 +12,7 @@
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            Use this area to provide additional information.a
         </p>
 
         <p>        
