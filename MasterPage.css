@@ -1,0 +1,12 @@
+﻿/* set colors */ 
+body{color:#000000;background-color:#DCDCDC;} 
+#container{color:#666666;background-color:#FFFFFF;} 
+.shaded{color:#666666;background:#99CCFF;} 
+ 
+div{margin:1em 0 0 0;padding:1em;} 
+ 
+/* Basic 2 column layout with header and footer areas */ 
+#container{width:90%;margin:0 auto;} 
+#sideArea{float:left;width:12em;} 
+#mainArea,#footer{margin-left:16em;padding:0 1em;} 
+#footer{clear:both;} 
