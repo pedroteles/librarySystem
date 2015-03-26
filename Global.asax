@@ -1,5 +1,5 @@
 ﻿<%@ Application Language="C#" %>
-<%@ Import Namespace="librarySystem" %>
+<%@ Import Namespace="library" %>
 <%@ Import Namespace="System.Web.Optimization" %>
 <%@ Import Namespace="System.Web.Routing" %>
 
