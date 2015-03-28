@@ -39,7 +39,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">your logo here</a></p>
+                    <a runat="server" href="~/">Library System</a></p>
             </div>
             <div class="float-right">
                 <section id="login">
@@ -65,15 +65,37 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Collection">Collection</a></li>
+                        <li><a runat="server" href="~/FAQ">FAQ</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+      
     <div id="body">
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+
+         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
+             <div style="padding-left:500px">
+            <asp:Label ID="Select" runat="server" Text="Select Category"></asp:Label> 
+        <asp:DropDownList ID="Function" runat="server">
+            <asp:ListItem Selected="True">Title</asp:ListItem>
+            <asp:ListItem>ISBN</asp:ListItem>
+            <asp:ListItem>Author</asp:ListItem>
+            <asp:ListItem>Subject</asp:ListItem>
+            <asp:ListItem>Calling Number</asp:ListItem>
+          </asp:DropDownList>
+             
+        <asp:TextBox ID="SearchBox" runat="server"></asp:TextBox>
+        <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" />
+                  </div>
+         </asp:ContentPlaceHolder>
+        
+      
+
         <section class="content-wrapper main-content clear-fix">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+           
         </section>
     </div>
     <footer>

@@ -67,4 +67,8 @@ public partial class SiteMaster : MasterPage
     {
 
     }
+    protected void SearchButton_Click(object sender, EventArgs e)
+    {
+
+    }
 }
