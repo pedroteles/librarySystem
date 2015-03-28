@@ -1,11 +1,11 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background: url("../Images/library_bg.png");
     margin: 0;
     padding: 0;
 }
 
 body {
-    background: url("../Images/library_bg.png")repeat ;
+    background: url("../Images/library_bg.png");
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
@@ -98,16 +98,16 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background: url("../Images/body_bg.png");
     clear: both;
-    padding-bottom: 35px;
+    padding-bottom: 20px;
     padding-left: 50px;
    
 }
 
 
     .main-content {
-        background:blue;
+        background:lightblue;
         padding-left: 10px;
         padding-top: 30px;
     }
@@ -121,10 +121,12 @@ header .content-wrapper {
 }
     
 footer {
+    margin: 0 auto;
+    
     clear: both;
-    background:url("../Images/library_bg.png")repeat;
+    background-color: lightblue;
     font-size: .8em;
-    height: 100px;
+    height: 50px;
 }
 
 
@@ -196,12 +198,12 @@ ul#menu {
 
         ul#menu li a {
             background: none;
-            color: #999;
+            color: white;
             text-decoration: none;
         }
 
         ul#menu li a:hover {
-            color: #333;
+            color: lightblue;
             text-decoration: none;
         }
 
@@ -738,3 +740,9 @@ tr.pager td {
         }
 }
 /* END: Mobile Styles */
+
+
+ /* new CSS layout
+    ----------------------------------------------------------*/
+
+  

@@ -1,13 +1,26 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+
+    <div class="Image" style="padding-left: 95px">
+        <a href="About.aspx">
+<asp:Image ID="About" runat="server" ImageUrl="~/Images/About.png" 
+    width="250px" height="175px"/>    
+        </a>
+        
+        <a href="Collection.aspx">
+<asp:Image ID="Coleection" runat="server" ImageUrl="~/Images/Collection.png" 
+    width="250px" height="175px" border-radius="10px"/>
+        </a>
+
+        <a href="Contact.aspx">
+<asp:Image ID="ContactUs" runat="server" ImageUrl="~/Images/ContactUs.png" 
+    width="250px" height="175px" border-radius="10px"/>
+        </a>
+    </div>
+            
     <ol class="round">
-        <li class="one">
-            <h5>About the Library System</h5>
-            <a runat="server" href="~/About" >
-                <asp:image id="img" runat="server" imageurl="C:\ibrary_Sytem/ImagesAbout.png"/>
-            </a>
-        </li>
+       
         <li class="two">
             <h5>Add NuGet packages and jump-start your coding</h5>
             NuGet makes it easy to install and update free libraries and tools.
