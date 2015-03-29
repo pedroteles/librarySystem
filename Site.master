@@ -4,7 +4,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %>- My ASP.NET Application</title>
     <asp:PlaceHolder runat="server">      
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -78,7 +78,7 @@
          <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
              <div style="padding-left:500px">
             <asp:Label ID="Select" runat="server" Text="Select Category"></asp:Label> 
-        <asp:DropDownList ID="Function" runat="server">
+        <asp:DropDownList ID="ddlColumn" runat="server">
             <asp:ListItem Selected="True">Title</asp:ListItem>
             <asp:ListItem>ISBN</asp:ListItem>
             <asp:ListItem>Author</asp:ListItem>
@@ -86,8 +86,8 @@
             <asp:ListItem>Calling Number</asp:ListItem>
           </asp:DropDownList>
              
-        <asp:TextBox ID="SearchBox" runat="server"></asp:TextBox>
-        <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" />
+        <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="SearchButton_Click" />
                   </div>
          </asp:ContentPlaceHolder>
         
@@ -102,7 +102,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p>
-                    &copy; <%: DateTime.Now.Year %> - My ASP.NET Application
+                    &copy; <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>- My ASP.NET Application
                 </p>
             </div>
         </div>
