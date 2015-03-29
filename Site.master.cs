@@ -65,10 +65,22 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Page.LoadComplete += new EventHandler(Page_LoadComplete);
     }
     protected void SearchButton_Click(object sender, EventArgs e)
     {
         Response.Redirect("Collection.aspx?"+ddlColumn.SelectedValue+"=" +Server.UrlEncode(txtSearch.Text));
+    }
+
+    protected void Page_LoadComplete(object sender, EventArgs e)
+    {
+        string[] keys = Request.QueryString.AllKeys;
+        if (keys.Length > 0)
+        {
+            string key = keys[0];
+
+            ddlColumn.SelectedIndex = ddlColumn.Items.IndexOf(ddlColumn.Items.FindByText(key));
+        }
+
     }
 }

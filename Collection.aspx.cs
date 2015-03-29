@@ -19,6 +19,7 @@ public partial class Collection : System.Web.UI.Page
             {
                 SqlDataSource1.SelectCommand = string.Format("SELECT [BookId], [Isbn], [Title], [Summary], [Edition] FROM [Books] WHERE {0} LIKE '%{1}%'", key, value);
             }
+            
         }
        
         
