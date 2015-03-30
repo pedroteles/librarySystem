@@ -4,10 +4,25 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT [BookId], [Isbn], [Title], [Summary], [Edition] FROM [Books] WHERE [Isbn] LIKE '%' + @ISBN + '%' AND [Title] LIKE '%' + @Title + '%'" CancelSelectOnNullParameter="False">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT DISTINCT [Books].[BookId], [Isbn], [Title], [Edition] 
+FROM [Books] 
+INNER JOIN SubjectsInBooks ON Books.BookId=SubjectsInBooks.BookId
+INNER JOIN Subjects ON Subjects.SubjectId=SubjectsInBooks.SubjectId
+INNER JOIN AuthorsInBooks ON Books.BookId=AuthorsInbooks.BookId
+INNER JOIN Authors ON Authors.AuthorId=AuthorsInbooks.AuthorID
+WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND 
+(([Isbn] LIKE '%' + @Isbn + '%') AND 
+([Title] LIKE '%' + @Title + '%')) AND
+(([AuthorFirstName] LIKE + @Author + '%') OR
+([AuthorSurname] LIKE + @Author + '%') OR
+(+ @Author LIKE [AuthorFirstName]+' '+[AuthorSurname]) OR
+(+ @Author LIKE [AuthorSurname]+' '+[AuthorFirstName]) OR
+([AuthorFirstName]+' '+[AuthorSurname] LIKE + @Author + '%'))" CancelSelectOnNullParameter="False">
         <SelectParameters>
-            <asp:QueryStringParameter Name="ISBN" QueryStringField="ISBN" Type="String" DefaultValue="" ConvertEmptyStringToNull="False"/>
+            <asp:QueryStringParameter Name="Subject" QueryStringField="Subject" DefaultValue="" Type="String" ConvertEmptyStringToNull="False"/>
+            <asp:QueryStringParameter Name="Isbn" QueryStringField="ISBN" Type="String" DefaultValue="" ConvertEmptyStringToNull="False"/>
             <asp:QueryStringParameter Name="Title" QueryStringField="Title" Type="String" DefaultValue="" ConvertEmptyStringToNull="False"/>
+            <asp:QueryStringParameter Name="Author" QueryStringField="Author" Type="String" DefaultValue="" ConvertEmptyStringToNull="False"/>
         </SelectParameters>
         
 </asp:SqlDataSource>
@@ -17,7 +32,6 @@
         <asp:BoundField DataField="BookId" HeaderText="BookId" SortExpression="BookId" InsertVisible="False" ReadOnly="True" />
         <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-        <asp:BoundField DataField="Summary" HeaderText="Summary" SortExpression="Summary" />
         <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
     </Columns>
     <EditRowStyle BackColor="#2461BF" />
@@ -31,6 +45,5 @@
     <SortedDescendingCellStyle BackColor="#E9EBEF" />
     <SortedDescendingHeaderStyle BackColor="#4870BE" />
 </asp:GridView>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </asp:Content>
 

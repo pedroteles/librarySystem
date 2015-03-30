@@ -80,6 +80,7 @@ public partial class SiteMaster : MasterPage
             string key = keys[0];
 
             ddlColumn.SelectedIndex = ddlColumn.Items.IndexOf(ddlColumn.Items.FindByText(key));
+            txtSearch.Text = Request.QueryString[key];
         }
 
     }
