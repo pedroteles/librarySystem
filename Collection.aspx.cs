@@ -9,6 +9,10 @@ public partial class Collection : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        /*
+         * The code below is vulnerable to SQL Injection
+         *  
         SqlDataSource1.SelectCommand = "SELECT [BookId], [Isbn], [Title], [Summary], [Edition] FROM [Books]";
         string[] keys = Request.QueryString.AllKeys;
         if (keys.Length > 0)
@@ -21,9 +25,10 @@ public partial class Collection : System.Web.UI.Page
             }
             
         }
-       
-        
-    
-            
+ */
+
+
+
+
     }
 }
