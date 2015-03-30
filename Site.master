@@ -4,7 +4,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %>- My ASP.NET Application</title>
+    <title>Library System -<%: Page.Title %></title>
     <asp:PlaceHolder runat="server">      
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -83,7 +83,7 @@
             <asp:ListItem>ISBN</asp:ListItem>
             <asp:ListItem>Author</asp:ListItem>
             <asp:ListItem>Subject</asp:ListItem>
-            <asp:ListItem>Calling Number</asp:ListItem>
+            <asp:ListItem>Edition</asp:ListItem>
           </asp:DropDownList>
              
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
@@ -99,13 +99,14 @@
         </section>
     </div>
     <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>
-                    &copy; <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>- My ASP.NET Application
-                </p>
+               
+            <div id="footerbtm">Library System | Dublin Business School | Dublin, Ireland. <br />
+            <strong>Phone:</strong> + 353(0) 1 34567 <span></span> 
+            <strong>Fax</strong>: + 353(0)1 123456 <span></span>
+            <strong>Email:</strong> 
+                librarysystem@gmail.com<span></span>
             </div>
-        </div>
+        
     </footer>
     </form>
 </body>

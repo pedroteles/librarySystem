@@ -122,10 +122,10 @@ header .content-wrapper {
     
 footer {
     margin: 0 auto;
-    
+    padding-left: 500px;
     clear: both;
     background-color: lightblue;
-    font-size: .8em;
+    font-size: 1.2em;
     height: 50px;
 }
 
@@ -745,4 +745,3 @@ tr.pager td {
  /* new CSS layout
     ----------------------------------------------------------*/
 
-  
