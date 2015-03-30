@@ -83,7 +83,7 @@
             <asp:ListItem>ISBN</asp:ListItem>
             <asp:ListItem>Author</asp:ListItem>
             <asp:ListItem>Subject</asp:ListItem>
-            <asp:ListItem>Edition</asp:ListItem>
+            <asp:ListItem>Call Number</asp:ListItem>
           </asp:DropDownList>
              
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
