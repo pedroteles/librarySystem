@@ -4,12 +4,24 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT DISTINCT [Books].[BookId], [Isbn], [Title], [Edition] 
-FROM [Books] 
-INNER JOIN SubjectsInBooks ON Books.BookId=SubjectsInBooks.BookId
-INNER JOIN Subjects ON Subjects.SubjectId=SubjectsInBooks.SubjectId
-INNER JOIN AuthorsInBooks ON Books.BookId=AuthorsInbooks.BookId
-INNER JOIN Authors ON Authors.AuthorId=AuthorsInbooks.AuthorID
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="
+SELECT DISTINCT [b].[BookId], [Isbn], [Title], [Edition], Subjects = STUFF(
+             (SELECT '; ' + SubjectName
+              FROM Subjects s INNER JOIN SubjectsInBooks sb on s.SubjectId = sb.SubjectId 
+			  WHERE sb.BookId=b.BookId
+              FOR XML PATH (''))
+             , 1, 1, ''), 
+        Authors = STUFF(
+             (SELECT '; ' + AuthorFirstName+' '+AuthorSurname 
+              FROM Authors a INNER JOIN AuthorsInBooks ab on a.AuthorId = ab.AuthorId 
+			  WHERE ab.BookId=b.BookId
+              FOR XML PATH (''))
+             , 1, 1, '') 
+FROM Books AS [b]
+INNER JOIN SubjectsInBooks AS sb ON [b].[BookId]=[sb].[BookId]
+INNER JOIN Subjects AS s ON [s].[SubjectId]=[sb].[SubjectId]
+INNER JOIN AuthorsInBooks AS ab ON [b].[BookId]=[ab].[BookId]
+INNER JOIN Authors AS a ON [a].[AuthorId]=[ab].[AuthorID]
 WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND 
 (([Isbn] LIKE '%' + @Isbn + '%') AND 
 ([Title] LIKE '%' + @Title + '%')) AND
@@ -26,24 +38,24 @@ WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND
         </SelectParameters>
         
 </asp:SqlDataSource>
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="BookId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
-    <AlternatingRowStyle BackColor="White" />
-    <Columns>
-        <asp:BoundField DataField="BookId" HeaderText="BookId" SortExpression="BookId" InsertVisible="False" ReadOnly="True" />
-        <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
-        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-        <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
-    </Columns>
-    <EditRowStyle BackColor="#2461BF" />
-    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-    <RowStyle BackColor="#EFF3FB" />
-    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-    <SortedAscendingCellStyle BackColor="#F5F7FB" />
-    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-    <SortedDescendingCellStyle BackColor="#E9EBEF" />
-    <SortedDescendingHeaderStyle BackColor="#4870BE" />
-</asp:GridView>
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="BookId" DataSourceID="SqlDataSource1" ForeColor="Black">
+        <Columns>
+            <asp:CommandField ShowSelectButton="True" />
+            <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
+            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+            <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
+            <asp:BoundField DataField="Subjects" HeaderText="Subjects" ReadOnly="True" SortExpression="Subjects" />
+            <asp:BoundField DataField="Authors" HeaderText="Authors" ReadOnly="True" SortExpression="Authors" />
+        </Columns>
+        <FooterStyle BackColor="#CCCCCC" />
+        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+        <RowStyle BackColor="White" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#808080" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#383838" />
+    </asp:GridView>
     </asp:Content>
 
