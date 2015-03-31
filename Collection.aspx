@@ -49,7 +49,13 @@ WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND
             <asp:BoundField DataField="Summary" HeaderText="Summary" SortExpression="Summary" />
             <asp:BoundField DataField="Subjects" HeaderText="Subjects" ReadOnly="True" SortExpression="Subjects" />
             <asp:BoundField DataField="Authors" HeaderText="Authors" ReadOnly="True" SortExpression="Authors" />
-        </Columns>
+       
+            <asp:TemplateField HeaderText="View Details">
+<ItemTemplate>
+    <asp:HyperLink ID="SqlDataSource2" runat='server' NavigateUrl='<%# String.Format("~/Collection.aspx?ID={0}", Eval("ENTITY_ID")) %>'>Select</asp:HyperLink>
+</ItemTemplate>
+                </asp:TemplateField>
+             </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -76,10 +82,25 @@ BooksInstances AS bi
 ON [b].[BookId]=[bi].[BookId]
 WHERE [b].[BookId] = @pARAMETER
 ORDER BY [b].[Title]">
+    <SelectParameters>
+        <asp:Parameter Name="pARAMETER" />
+    </SelectParameters>
 
 </asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server">
-
+    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2">
+        <Columns>
+       
+            <asp:BoundField DataField="BookId" HeaderText="BookId" InsertVisible="False" ReadOnly="True" SortExpression="BookId" />
+            <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
+            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+            <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
+            <asp:BoundField DataField="Summary" HeaderText="Summary" SortExpression="Summary" />
+            <asp:BoundField DataField="BookInstanceId" HeaderText="BookInstanceId" InsertVisible="False" ReadOnly="True" SortExpression="BookInstanceId" />
+            <asp:BoundField DataField="CallNumber" HeaderText="CallNumber" SortExpression="CallNumber" />
+            <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
+            <asp:BoundField DataField="DateDue" HeaderText="DateDue" ReadOnly="True" SortExpression="DateDue" />
+        </Columns>
+         
     </asp:GridView>
 
 </asp:Content>
