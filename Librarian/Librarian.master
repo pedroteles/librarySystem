@@ -2,8 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" Runat="Server">
-</asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+        
+    <div id="2col">
+      <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
+      </asp:ContentPlaceHolder>
+      <asp:ContentPlaceHolder ID="rightcolumn" runat="server">
+      </asp:ContentPlaceHolder>
+</div>
+    
 </asp:Content>
 
