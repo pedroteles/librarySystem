@@ -4,12 +4,27 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-        
-    <div id="2col">
+      <div id="2col">
       <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
+          
+          
       </asp:ContentPlaceHolder>
       <asp:ContentPlaceHolder ID="rightcolumn" runat="server">
+          
+              <aside>
+                  <h3>MEMBER PAGE</h3>
+                  <p>
+                      Manage your library account
+                  </p>
+                  <ul>
+                      <li><a id="A1" runat="server" href="~/Member/ManagemyBooks.aspx">ManagemyBooks</a></li>
+                      <li><a id="A2" runat="server" href="~/Member/RenewBooks.aspx">RenewBooks</a></li>
+                  </ul>
+              </aside>
+          
+
+         
       </asp:ContentPlaceHolder>
 </div>
-</asp:Content>    
+</asp:Content>
 
