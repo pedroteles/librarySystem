@@ -110,11 +110,11 @@ h5, h6 {
         background:lightblue;
         padding-left: 10px;
         padding-top: 30px;
+        padding-bottom:30px;
+        border-radius: 10px 50px;
     }
 
-    .featured + .main-content {
-        background: ;
-    }
+  
 
 header .content-wrapper {
     padding-top: 20px; 
@@ -122,7 +122,7 @@ header .content-wrapper {
     
 footer {
     margin: 0 auto;
-    padding-left: 500px;
+    padding-left: 200px;
     clear: both;
     background-color: lightblue;
     font-size: 1.2em;
