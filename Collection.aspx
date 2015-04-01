@@ -39,10 +39,10 @@ WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND
         </SelectParameters>
         
 </asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeaderWhenEmpty="true" EmptyDataText="No results found!" ShowFooter="true">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
-            <asp:BoundField DataField="BookId" HeaderText="BookId" InsertVisible="False" ReadOnly="True" SortExpression="BookId" />
             <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
@@ -50,19 +50,19 @@ WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND
             <asp:BoundField DataField="Subjects" HeaderText="Subjects" ReadOnly="True" SortExpression="Subjects" />
             <asp:BoundField DataField="Authors" HeaderText="Authors" ReadOnly="True" SortExpression="Authors" />
         </Columns>
-        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#F7F7F7" />
-        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-        <SortedDescendingCellStyle BackColor="#E5E5E5" />
-        <SortedDescendingHeaderStyle BackColor="#242121" />
+        <EditRowStyle BackColor="#999999" />
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
-    
 
-<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="
-   SELECT [b].[BookId], [Isbn], [Title], [Edition], [Summary], [bi].[BookInstanceId], [CallNumber],
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT [b].[BookId], [Isbn], [Title], [Edition], [Summary], [bi].[BookInstanceId], [CallNumber],
 CASE WHEN (SELECT ReturnDate FROM Loans AS [l] WHERE [l].[BookInstanceId]=[bi].[BookInstanceId] AND [l].[LoanId] IN 
 (SELECT MAX(LoanId) FROM  Loans AS [l2] WHERE [l2].[BookInstanceId] = [bi].[BookInstanceId] ) ) 
 IS NULL AND 
@@ -74,12 +74,34 @@ FROM Books AS b
 INNER JOIN 
 BooksInstances AS bi
 ON [b].[BookId]=[bi].[BookId]
-WHERE [b].[BookId] = @pARAMETER
+WHERE [b].[BookId] = @BookId
 ORDER BY [b].[Title]">
-
-</asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server">
-
+        <SelectParameters>
+            <asp:ControlParameter ControlID="GridView1" Name="BookId" PropertyName="SelectedValue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <br />
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
+            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+            <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
+            <asp:BoundField DataField="Summary" HeaderText="Summary" SortExpression="Summary" />
+            <asp:BoundField DataField="CallNumber" HeaderText="CallNumber" SortExpression="CallNumber" />
+            <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
+            <asp:BoundField DataField="DateDue" HeaderText="DateDue" ReadOnly="True" SortExpression="DateDue" />
+        </Columns>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
 </asp:Content>
