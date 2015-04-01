@@ -9,7 +9,7 @@
       <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
       </asp:ContentPlaceHolder>
       <asp:ContentPlaceHolder ID="rightcolumn" runat="server">
-        
+        <aside>
         <h3>Librarian Page</h3>
         <p>        
             Manage and Loan books in the library System
@@ -22,7 +22,7 @@
             <li><a id="A5" runat="server" href="~/Librarian/ReturnBooks.aspx">ReturnBooks</a></li>
         </ul>
    
-	
+	</aside>
       </asp:ContentPlaceHolder>
 </div>
     
