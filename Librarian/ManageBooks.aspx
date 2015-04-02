@@ -45,11 +45,55 @@
                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                    </asp:GridView>
                    </asp:View>
-               <asp:View ID="EditBook" runat="server"  >
-                   edit<asp:Button ID="btnEditSave" runat="server" Text="Save" OnClick="btnEditSave_Click" />
+               <asp:View ID="EditBook" runat="server"  >                  
+                   <asp:Button ID="btnEditSave" runat="server" Text="Save" OnClick="btnEditSave_Click" />
                </asp:View>
                <asp:View ID="NewBook" runat="server"  >
-                   new book<asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+                   <asp:Table ID="TableNewBook" runat="server">
+                       <asp:TableRow>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewISBN" runat="server" Text="ISBN"></asp:Label>
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:TextBox ID="txtNewISBN" runat="server"></asp:TextBox>                               
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewISBNError" runat="server" Text=""></asp:Label>
+                           </asp:TableCell>
+                       </asp:TableRow>
+                       <asp:TableRow>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewTitle" runat="server" Text="Title"></asp:Label>
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:TextBox ID="txtNewTitle" runat="server"></asp:TextBox>
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewTitleError" runat="server" Text=""></asp:Label>
+                           </asp:TableCell>
+                       </asp:TableRow>
+                       <asp:TableRow>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewSummary" runat="server" Text="Summary"></asp:Label>
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:TextBox ID="txtNewSummary" runat="server"></asp:TextBox>
+                           </asp:TableCell>
+                       </asp:TableRow>
+                       <asp:TableRow>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewEdition" runat="server" Text="Edition"></asp:Label>
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:TextBox ID="txtNewEdition" runat="server"></asp:TextBox>
+                           </asp:TableCell>
+                           <asp:TableCell>
+                               <asp:Label ID="lblNewEditionError" runat="server" Text=""></asp:Label>
+                           </asp:TableCell>
+                       </asp:TableRow>
+                   </asp:Table>
+                   
+                   <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                </asp:View>
 
 </asp:MultiView>

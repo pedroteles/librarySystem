@@ -25,7 +25,10 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        BooksView.ActiveViewIndex = 0;
+        if (validateFields())
+        {
+            BooksView.ActiveViewIndex = 0;
+        } 
     }
     protected void btnEditSave_Click(object sender, EventArgs e)
     {
@@ -53,4 +56,57 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
     {
         InstancesView.ActiveViewIndex = 1;
     }
+
+    private bool validateFields()
+    {
+        resetErrorMessages();
+        return validateTxtEdition() & validateTxtNewISBN() & validateTxtTitle();
+    }
+    private bool validateTxtNewISBN()
+    {
+        //return true if isbn lenght grater than 0 and less than 21
+        if (txtNewISBN.Text.Length > 0 && txtNewISBN.Text.Length <=20)
+        {
+            return true;
+        }
+        else
+        {
+            lblNewISBNError.Text = "Minimum 1 and Maximum 20 characters required.";
+            return false;
+        }
+    }
+    private bool validateTxtTitle()
+    {
+        //return true if isbn lenght grater than 0 and less than 101
+        if(txtNewTitle.Text.Length > 0 && txtNewTitle.Text.Length <= 100)
+        {
+            return true;
+        }
+        else
+        {
+            lblNewTitleError.Text = "Minimum 1 and Maximum 100 characters required.";
+            return false;
+        }
+    }
+
+    private bool validateTxtEdition()
+    {
+        //return true if edition less than 11
+        if( txtNewEdition.Text.Length < 11){
+            return true;
+        }
+        else
+        {
+            lblNewEditionError.Text = "Maximum 10 characters required.";
+            return false;
+        }
+    }
+    private void resetErrorMessages()
+    {
+        lblNewEditionError.Text = "";
+        lblNewISBNError.Text = "";
+        lblNewTitleError.Text = "";
+    }
+
 }
+
