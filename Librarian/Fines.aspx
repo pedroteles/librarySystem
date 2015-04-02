@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Librarian/Librarian.master" AutoEventWireup="true" CodeFile="PayFees.aspx.cs" Inherits="Librarian_PayFees" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Librarian/Librarian.master" AutoEventWireup="true" CodeFile="Fines.aspx.cs" Inherits="Librarian_PayFees" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="leftcolumn" Runat="Server">
     <asp:Label ID="Label1" runat="server" Text="Display: "></asp:Label>
