@@ -17,4 +17,40 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
 
         MultiView1.ActiveViewIndex = int.Parse(mi.SelectedValue);
     }
+    protected void BooksMenu_MenuItemClick(object sender, MenuEventArgs e)
+    {
+        Menu mi = (Menu)sender;
+
+        BooksView.ActiveViewIndex = int.Parse(mi.SelectedValue);
+    }
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        BooksView.ActiveViewIndex = 0;
+    }
+    protected void btnEditSave_Click(object sender, EventArgs e)
+    {
+        BooksView.ActiveViewIndex = 0;
+    }
+    protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        BooksView.ActiveViewIndex = 1;
+    }
+    protected void btnEditInstanceSave_Click(object sender, EventArgs e)
+    {
+        InstancesView.ActiveViewIndex = 0;
+    }
+    protected void btnNewInstanceSave_Click(object sender, EventArgs e)
+    {
+        InstancesView.ActiveViewIndex = 0;
+    }
+    protected void InstancesMenu_MenuItemClick(object sender, MenuEventArgs e)
+    {
+        Menu mi = (Menu)sender;
+
+        InstancesView.ActiveViewIndex = int.Parse(mi.SelectedValue);
+    }
+    protected void GridView2_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        InstancesView.ActiveViewIndex = 1;
+    }
 }
