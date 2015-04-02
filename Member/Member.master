@@ -17,8 +17,8 @@
                       Manage your library account
                   </p>
                   <ul>
-                      <li><a id="A1" runat="server" href="~/Member/ManagemyBooks.aspx">ManagemyBooks</a></li>
-                      <li><a id="A2" runat="server" href="~/Member/RenewBooks.aspx">RenewBooks</a></li>
+                      <li><a id="A1" runat="server" href="~/Member/ManageMyBooks.aspx">Manage my books</a></li>
+                      <li><a id="A2" runat="server" href="~/Member/MyFines.aspx">My Fines</a></li>
                   </ul>
               </aside>
           

@@ -105,7 +105,14 @@ h5, h6 {
    
 }
 
-
+#sociallink {
+    padding-left: 350px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    }
+#CollectionTable {
+    padding-right: 10px;
+}
     .main-content {
         background:lightblue;
         padding-left: 10px;

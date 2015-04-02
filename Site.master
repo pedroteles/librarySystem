@@ -74,7 +74,7 @@
     </header>
       
     <div id="body">
-
+        
          <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
              <div style="padding-left:500px">
             <asp:Label ID="Select" runat="server" Text="Select Category"></asp:Label> 
@@ -91,22 +91,23 @@
                   </div>
          </asp:ContentPlaceHolder>
         
-      
-
         <section class="content-wrapper main-content clear-fix">
+
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
            
         </section>
     </div>
+
+
     <footer>
                
-            <div id="footerbtm">Library System | Dublin Business School | Dublin, Ireland 
-            <strong>Phone:</strong> + 353(0) 1 34567 <span></span> 
-            <strong>Fax</strong>: + 353(0)1 123456 <span></span>
+            <div id="footerbtm">Library System | Dublin Business School | Dublin, Ireland | 
+            <strong>Phone:</strong> + 353(0) 1 34567 |<span></span> 
+            <strong>Fax</strong>: + 353(0)1 123456 |<span></span>
             <strong>Email:</strong> 
                 librarysystem@gmail.com<span></span>
             </div>
-        
+               
     </footer>
     </form>
 </body>

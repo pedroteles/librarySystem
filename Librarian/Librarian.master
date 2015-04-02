@@ -15,10 +15,10 @@
             Manage and Loan books in the library System
         </p>
         <ul>
-            <li><a id="A1" runat="server" href="~/Librarian/BorrowBooks.aspx">BorrowBoks</a></li>
+            <li><a id="A1" runat="server" href="~/Librarian/LoanBooks.aspx">LoanBooks</a></li>
             <li><a id="A2" runat="server" href="~/Librarian/ManageBooks.aspx">ManageBooks</a></li>
             <li><a id="A3" runat="server" href="~/Librarian/ManageLoans.aspx">ManageLoans</a></li>
-            <li><a id="A4" runat="server" href="~/Librarian/PayFees.aspx">PayFees</a></li>
+            <li><a id="A4" runat="server" href="~/Librarian/Fines.aspx">Fines</a></li>
             <li><a id="A5" runat="server" href="~/Librarian/ReturnBooks.aspx">ReturnBooks</a></li>
         </ul>
    
