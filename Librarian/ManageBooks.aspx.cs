@@ -11,4 +11,10 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
     {
 
     }
+    protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+    {
+        Menu mi = (Menu)sender;
+
+        MultiView1.ActiveViewIndex = int.Parse(mi.SelectedValue);
+    }
 }
