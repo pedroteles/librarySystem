@@ -17,8 +17,8 @@
                       Set and Control library Parameters
                   </p>
                   <ul>
-                      <li><a id="A1" runat="server" href="~/SystemParameters.aspx">System Parameter</a></li>
-                      <li><a id="A2" runat="server" href="~/Librarians.aspx">Librarians</a></li>
+                      <li><a id="A1" runat="server" href="~/Admin/SystemParameters.aspx">System Parameter</a></li>
+                      <li><a id="A2" runat="server" href="~/Admin/Librarians.aspx">Librarians</a></li>
                   </ul>
               </aside>
           

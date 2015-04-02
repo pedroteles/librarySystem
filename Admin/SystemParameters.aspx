@@ -53,6 +53,5 @@
             </tr>
         </table>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="rightcolumn" Runat="Server">
-</asp:Content>
+
 
