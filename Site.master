@@ -77,14 +77,15 @@
                  
             </div>
         </div>
+        
     </header>
         
     <div id="body">
 
-        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
-        <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
+       
         
          <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
+             
              <div style="padding-left:500px">
             <asp:Label ID="Select" runat="server" Text="Select Category"></asp:Label> 
         <asp:DropDownList ID="ddlColumn" runat="server">
@@ -98,6 +99,12 @@
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="SearchButton_Click" />
                   </div>
+             <br />
+             <div id="breadcrumb" style="font-size: 20px;background-color: #000;padding: 5px;">
+                <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+                <asp:SiteMapPath ID="SiteMapPath" runat="server" CurrentNodeStyle-ForeColor="White" RootNodeStyle-ForeColor="#BBBBBB" NodeStyle-ForeColor="#DDDDDD"></asp:SiteMapPath>
+             </div>
+             <br />
          </asp:ContentPlaceHolder>
         
         <section class="content-wrapper main-content clear-fix">

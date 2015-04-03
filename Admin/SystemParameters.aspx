@@ -8,7 +8,7 @@
                 </td>
                 <td>
         <asp:TextBox ID="txtFine" runat="server" ></asp:TextBox>
-        <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="this is not a decimal" ControlToValidate="txtFine" Type="Currency" MaximumValue="10" MinimumValue="0" Visible="True"></asp:RangeValidator>
+        <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="this is not a decimal" ControlToValidate="txtFine" Type="Currency" MaximumValue="20" MinimumValue="0" Visible="True"></asp:RangeValidator>
                 </td>
             </tr>
             <tr>
@@ -18,7 +18,7 @@
                 <td>
         <asp:TextBox ID="txtMaxR" runat="server"></asp:TextBox>
         
-        <asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="This is not an Integer" ControlToValidate="txtMaxR" Type="Integer" MaximumValue="5" MinimumValue="0"></asp:RangeValidator>
+        <asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="This is not an Integer" ControlToValidate="txtMaxR" Type="Integer" MaximumValue="20" MinimumValue="0"></asp:RangeValidator>
                 </td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
                 <td>
         <asp:TextBox ID="txtMaxIt" runat="server"></asp:TextBox>
         
-        <asp:RangeValidator ID="RangeValidator3" runat="server" ErrorMessage="This is not an Integer" ControlToValidate="txtMaxIt" Type="Integer" MaximumValue="5" MinimumValue="0"></asp:RangeValidator>
+        <asp:RangeValidator ID="RangeValidator3" runat="server" ErrorMessage="This is not an Integer" ControlToValidate="txtMaxIt" Type="Integer" MaximumValue="20" MinimumValue="0"></asp:RangeValidator>
                 </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@
         <asp:TextBox ID="txtNum" runat="server"></asp:TextBox>
        
 
-        <asp:RangeValidator ID="RangeValidator4" runat="server" ErrorMessage="This is not an Integer" ControlToValidate="txtNum" MaximumValue="7" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+        <asp:RangeValidator ID="RangeValidator4" runat="server" ErrorMessage="This is not an Integer" ControlToValidate="txtNum" MaximumValue="30" MinimumValue="0" Type="Integer"></asp:RangeValidator>
 
                 </td>
             </tr>
