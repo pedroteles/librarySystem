@@ -1,0 +1,47 @@
+ADMIN:
+-message to user when update system parameters(SystemParameters.aspx); [EASY]
+-manage librarians (Librarians.aspx); [MEDIUM OR EASY]
+	-insert a new librarian (or maybe set an existing user as librarian [easier approch]);
+
+LIBRARIAN: 
+-loan books(LoanBooks.aspx); [HARD]
+	-dont allow if:
+		- there is a non-paid fine;
+		-limit of itens borrowed;
+	
+
+-manage books(ManageBooks.aspx): -PEDRO-
+	-insert authors;
+	-insert subjects;
+	-update book details;
+	-update authors;
+	-update subjects;
+
+-manage book instances(ManageBooks.aspx): -PEDRO-
+	-insert instances;
+	-update instances;
+
+-Manage loans: [EASY]
+	-show loans(ManageLoans.aspx);
+
+-Fines(Fines.aspx): -PEDRO-
+	-Pay a fine;
+
+-Return books (ReturnBooks.aspx): 
+	-Show checked out books [EASY];
+	-option to return a book [EASY]
+		-information about fine, if applicable [MEDIUM];
+
+MEMBER: 
+-show my books (history and checked out books); [EASY]
+-renew a book: [MEDIUM OR HARD]
+	-check for fines [EASY];
+	-check for the number of renewals [MEDIUM OR HARD];
+-my fines (MyFines.aspx) [EASY]
+	-pending fines;
+
+
+-Future functionalities:
+	-reservation
+	-file upload (book cover);
+
