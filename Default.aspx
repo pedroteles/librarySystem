@@ -2,16 +2,17 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
    
-      <aside>
+      <aside id="homeside">
           
-        <h3>OPENING HOURS</h3>
+        <h3>OPENING HOURS </h3>
           <asp:Table ID="Hours" GridLines="Both" runat="server"  Font-Bold="true" CellPadding="20">
         <asp:TableRow>
             <asp:TableCell>
+                
                 MONDAY  <br /> 
                 TUESDAY  <br /> 
                 WEDNESDAY  <br /> 
-                THURSDYA  <br /> 
+                THURSDAY  <br /> 
                 FRIDAY  <br /> 
                 SATURDAY <br /> 
                 SUNDAY <br /> 
@@ -25,11 +26,11 @@
             CLOSE<br />
             CLOSE<br />
             </asp:TableCell> 
-
-        </asp:TableRow>
+            </asp:TableRow>
           </asp:Table>
-
+        
            <h3>Social Links</h3><br />
+
            <a href="https://www.facebook.com/">
                 <asp:Image ID="Facebook" runat="server" ImageUrl="~/Images/facebook.png" 
                  width="40px" height="40px"/>
@@ -44,10 +45,25 @@
                 <asp:Image ID="blogspot" runat="server" ImageUrl="~/Images/blogspot.png" 
                 width="40px" height="40px"/>
            </a>
+          <br /><br />
+
+           <aside id="aboutside">
+        <h3>Aside Title</h3>
+        <p>        
+         more additional information.
+        </p>
+        <ul>
+            <li><a id="A1" runat="server" href="~/">Home</a></li>
+            <li><a id="A2" runat="server" href="~/About">About</a></li>
+            <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
+            <li><a id="A4" runat="server" href="~/Collection">Collection</a></li>
+            <li><a id="A5" runat="server" href="~/FAQ">FAQ</a></li>
+        </ul>
     </aside>
-    <br />
+    </aside>
    
-    <div class="Image" style="padding-left: 95px">
+   
+    <div id="Image">
         
         <a href="About.aspx">
 <asp:Image ID="About" runat="server" ImageUrl="~/Images/About.png" 

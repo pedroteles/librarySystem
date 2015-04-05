@@ -12,6 +12,8 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+
+
 </head>
 <body>
     
@@ -33,9 +35,9 @@
             <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
             <asp:ScriptReference Name="WebFormsBundle" />
             <%--Site scripts--%>
-
         </Scripts>
     </asp:ScriptManager>
+     
     <header>
         <div class="content-wrapper">
             <div class="float-left">
@@ -114,6 +116,10 @@
              </div>
              <br />
          </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+
+        </asp:ContentPlaceHolder>
         
         <section class="content-wrapper main-content clear-fix">
 

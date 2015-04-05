@@ -2,7 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
+
+<asp:Content runat="server" ID="Content2" ContentPlaceHolderID="BodyContent">
+
+    <aside id="collectionpage">
+        <h3>Aside Title</h3>
+        <p>        
+            Use this area to provide additional information.
+        </p>
+        <ul>
+            <li><a id="A1" runat="server" href="~/">Home</a></li>
+            <li><a id="A2" runat="server" href="~/About">About</a></li>
+            <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
+            <li><a id="A4" runat="server" href="~/Collection">Collection</a></li>
+            <li><a id="A5" runat="server" href="~/FAQ">FAQ</a></li>
+        </ul>
+    </aside>    
+
+ </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+
+
 <div id="CollectionTable">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="
 SELECT [b].[BookId], [Isbn], [Title], [Edition], [Summary],	 Subjects = STUFF(
@@ -83,7 +104,7 @@ ORDER BY [b].[Title]">
     </asp:SqlDataSource>
     <br />
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
-        <AlternatingRowStyle BackColor="White" />
+        <AlternatingRowStyle BackColor="White"/>
         <Columns>
             <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />

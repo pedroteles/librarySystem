@@ -1,36 +1,44 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="About.aspx.cs" Inherits="About" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <hgroup class="title">
-        <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
-    </hgroup>
 
-    <article>
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
-    </article>
-
-    <aside>
+    <img id="about" src="Images/about1.png"  />
+    <aside id="aboutside">
         <h3>Aside Title</h3>
         <p>        
-            Use this area to provide additional information.
+         additional information.
         </p>
         <ul>
-            <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/About">About</a></li>
-            <li><a runat="server" href="~/Contact">Contact</a></li>
-            <li><a runat="server" href="~/Collection">Collection</a></li>
-            <li><a runat="server" href="~/FAQ">FAQ</a></li>
+            <li><a id="A1" runat="server" href="~/">Home</a></li>
+            <li><a id="A2" runat="server" href="~/About">About</a></li>
+            <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
+            <li><a id="A4" runat="server" href="~/Collection">Collection</a></li>
+            <li><a id="A5" runat="server" href="~/FAQ">FAQ</a></li>
         </ul>
     </aside>
+    <div id="aboutlibrary">
+    <hgroup class="title">
+        <h1>ABOUT LIBRARY SYSTEM</h1>
+  
+    </hgroup>
+
+   
+        <p>        
+            Library System aimed to enhance the procedures of the library, 
+            from manually operated to a computerized system. A web based information services 
+            as vital alternative to the traditional face-to- face reference service.
+        </p>
+
+        <p>        
+           Library System is an Online Public Access Catalogue (OPAC), when made available on the Web is called Web OPAC. 
+           Information may be available in any media; it is the catalogue that ensures maximum exposure 
+           and subsequent use of information sources.
+        </p>
+
+        <p>        
+            
+        </p>
+   
+       </div>    
+    
 </asp:Content>

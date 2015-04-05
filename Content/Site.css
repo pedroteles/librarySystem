@@ -105,6 +105,10 @@ h5, h6 {
    
 }
 
+#about {
+    width: 600px;
+    border-radius: 20px;
+}
 #SiteMapPath1 {
     font-weight: 800;
     color: white;
@@ -117,13 +121,17 @@ h5, h6 {
     }
 #CollectionTable {
     padding-right: 10px;
+   
 }
+
     .main-content {
-        background: lightblue;
-        padding-left: 10px;
+        background:lightblue;
+        padding-left: 20px;
         padding-top: 30px;
         padding-bottom:30px;
-        border-radius: 10px 50px;
+        border-radius: 20px 70px;
+        padding-right:20px;
+  
     }
 
   
@@ -331,8 +339,39 @@ aside {
     float: right;
     width: 30%;
     padding-left:20px;
+    padding-top:20px;   
+}
+
+#homeside {
+    padding-left:20px;
+    padding-bottom:20px;
+      
+}
+
+
+#Image {
+    padding-left: 60px;
+    padding-right:30px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    
+  
+}
+
+#collectionpage {
+    float: left;
     
 }
+
+#aboutside {
+    background-image: url("../Images/bg1.png");
+    background-size:cover;
+    border-radius: 20px;
+   padding-right: 20px;
+   width: 250px;
+    
+}
+
 
 
     aside ul {
