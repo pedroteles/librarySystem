@@ -27,7 +27,7 @@ LIBRARIAN:
 -Fines(Fines.aspx): -PEDRO- [done]
 	-Pay a fine;
 
--Return books (ReturnBooks.aspx): 
+-Return books (ReturnBooks.aspx):  -Pedro- [done]
 	-Show checked out books [EASY];
 	-option to return a book [EASY]
 		-information about fine, if applicable [MEDIUM];
