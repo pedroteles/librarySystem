@@ -4,6 +4,7 @@
 
     <img id="about" src="Images/about1.png"  />
     <aside id="aboutside">
+
         <h3>Aside Title</h3>
         <p>        
          additional information.
@@ -14,11 +15,14 @@
             <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
             <li><a id="A4" runat="server" href="~/Collection">Collection</a></li>
             <li><a id="A5" runat="server" href="~/FAQ">FAQ</a></li>
-        </ul>
+        </ul><br />
+
+        
+    <img id="about1" src="Images/librarysystem_bg.png" />
     </aside>
     <div id="aboutlibrary">
     <hgroup class="title">
-        <h1>ABOUT LIBRARY SYSTEM</h1>
+        <h1>Welcome to LIBRARY SYSTEM</h1>
   
     </hgroup>
 

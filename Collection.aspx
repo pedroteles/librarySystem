@@ -6,17 +6,20 @@
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="BodyContent">
 
     <aside id="collectionpage">
-        <h3>Aside Title</h3>
+        <h3 id="collection1">Database Online</h3>
+
+        <div id="collectionside">
         <p>        
-            Use this area to provide additional information.
+            Access the following Database Online
         </p>
         <ul>
-            <li><a id="A1" runat="server" href="~/">Home</a></li>
-            <li><a id="A2" runat="server" href="~/About">About</a></li>
-            <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
-            <li><a id="A4" runat="server" href="~/Collection">Collection</a></li>
-            <li><a id="A5" runat="server" href="~/FAQ">FAQ</a></li>
+            <li><a href="http://www.irishnewsarchive.com/" title="Links to external site">Irish Newspaper Archives</a></li>
+            <li><a href="http://www.irishtimes.com/search/archive.html" title="Links to external site">Irish Times Digital Archive</a></li>
+            <li><a href="http://dib.cambridge.org/" title="Links to external site">Dictionary of Irish Biography</a></li>
+            <li><a href="http://www.emeraldinsight.com/" title="Links to external site">Emerald</a></li>
+            <li><a href="http://www.jstor.org/action/showJournals?browseType=collectionInfoPage&amp;selectCollection=ireland" title="The Ireland Collection (links to external site) ">Ireland Collection</a> </li>
         </ul>
+            </div>
     </aside>    
 
  </asp:Content>

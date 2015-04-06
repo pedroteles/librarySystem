@@ -45,21 +45,18 @@
                 <asp:Image ID="blogspot" runat="server" ImageUrl="~/Images/blogspot.png" 
                 width="40px" height="40px"/>
            </a>
-          <br /><br />
+          <br />
 
-           <aside id="aboutside">
-        <h3>Aside Title</h3>
-        <p>        
-         more additional information.
-        </p>
-        <ul>
-            <li><a id="A1" runat="server" href="~/">Home</a></li>
-            <li><a id="A2" runat="server" href="~/About">About</a></li>
-            <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
-            <li><a id="A4" runat="server" href="~/Collection">Collection</a></li>
-            <li><a id="A5" runat="server" href="~/FAQ">FAQ</a></li>
-        </ul>
-    </aside>
+           <aside id="aboutside1">
+        <h3 id="QL">Quick Links</h3>
+        <div id="quicklinks">
+        <p><strong><a href="http://www.dublin.ie">Dublin.ie</a></strong></p>
+        <p><a href="http://www.dublindashboard.ie/pages/index"><strong>Dublin Dashboard</strong></a></p>
+        <p><strong><a href="http://www.gov.ie">Gov.ie</a></strong></p>
+        <p><a href="http://airo.maynoothuniversity.ie/mapping-resources/airo-research-themes/housing/dcc-housing-monitoring-tool"><strong>Housing Monitoring Tool</strong></a></p>
+        <p><strong><a href="http://www.localgov.ie">LocalGov.ie</a></strong></p>
+        </div>     
+        </aside>
     </aside>
    
    
