@@ -9,9 +9,25 @@ using System.Web.UI.WebControls;
 
 public partial class Librarian_ManageLoans : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
+    private string userNameSelected
     {
 
+        get
+        {
+
+            return ViewState["userNameSelected"] as string;
+        }
+        set
+        {
+            ViewState["userNameSelected"] = value;
+        }
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            userNameSelected = "";
+        }
     }
     protected void btnReturn_Click(object sender, EventArgs e)
     {
@@ -32,7 +48,7 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True");
         con.Open();
         updateLoan(loanId, con);
-        string message = "The book returned successfully. ";
+        string message = "Book returned successfully. ";
         string sql = "SELECT [Total] FROM Fines WHERE LoanId = @LoanId";
 
         SqlCommand cmd = new SqlCommand(sql, con);
@@ -46,7 +62,7 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
 
         GridView2.SelectedIndex = -1;
         con.Close();
-        GridView2.DataBind();
+        updateGrids();
         
 
     }
@@ -77,22 +93,31 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                lblUserInf.Text = dr["UserName"].ToString();
+                userNameSelected = dr["UserName"].ToString();
+                lblUserInf.Text = userNameSelected;
+                txtSearchUser.Enabled = false;
                 dr.Close();
-                if(isThereFines(userName, con)){
+                if (isThereFines(userNameSelected, con))
+                {
                     lblUserInf.Text += ": There is a pending fine for this user!";
                 }
-                if(checkLoansLimit(userName, con))
+                if (checkLoansLimit(userNameSelected, con))
                 {
                     lblUserInf.Text += ": This user has reached the limit of books";
                 }
             }
             else
-            {   dr.Close();
+            {
+                dr.Close();
                 lblUserInf.Text = "User not found!";
             }
             con.Close();
         }
+        else
+        {
+            lblUserInf.Text = "User not found!";
+        }
+
     }
 
     private bool isThereFines(string userName, SqlConnection con)
@@ -141,4 +166,93 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
     }
 
 
+    protected void btnConfirm_Click(object sender, EventArgs e)
+    {
+        
+        if (userNameSelected == "")
+        {
+            
+            lblMessage.Text = "Select a user!";
+        }
+        else
+        { 
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True");
+            con.Open();
+            if (isThereFines(userNameSelected, con))
+            {
+                lblMessage.Text = "This user cannot borrow books because there is a pending fine.";
+            }
+            else
+            {
+                if (checkLoansLimit(userNameSelected, con))
+                {
+                    lblMessage.Text = "This user cannot borrow books because the limit has been reached.";
+                }
+                else
+                {
+
+                    if (GridView3.SelectedIndex == -1)
+                    {
+                        lblMessage.Text = "Select an available book!";
+                    }
+                    else
+                    {
+                        int bookInstanceId = int.Parse(GridView3.SelectedDataKey.Value.ToString());
+                        if(!isBookAvailable(bookInstanceId, con))
+                        {
+                            lblMessage.Text = "This book is not available!";
+                        }
+                        else
+                        {
+                            save(bookInstanceId, userNameSelected,con);
+                            lblMessage.Text = "Success";
+                        }
+                    }
+                }
+            }
+            con.Close();
+        }
+    }
+    protected void btnChange_Click(object sender, EventArgs e)
+    {
+        lblUserInf.Text = "";
+        txtSearchUser.Enabled = true;
+        userNameSelected = "";
+    }
+
+    private bool isBookAvailable(int bookInstanceId, SqlConnection con)
+    {
+        string sql = "SELECT [LoanId] FROM Loans WHERE [BookInstanceId] = @BookInstanceId AND [ReturnDate] IS NULL";
+        SqlCommand cmd = new SqlCommand(sql, con);
+        cmd.Parameters.AddWithValue("@BookInstanceId", bookInstanceId);
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.Read())
+        {
+            dr.Close();
+            return false;
+        }
+        dr.Close();
+        return true;
+       
+    }
+
+    private void save(int bookInstanceId, string userName, SqlConnection con)
+    {
+        string sql = "INSERT INTO Loans ([UserId], [BookInstanceId]) SELECT [UserId], @BookInstanceId FROM Users WHERE [UserName] = @UserName";
+        SqlCommand cmd = new SqlCommand(sql, con);
+        cmd.Parameters.AddWithValue("@BookInstanceId", bookInstanceId);
+        cmd.Parameters.AddWithValue("@UserName", userName);
+        cmd.ExecuteNonQuery();
+        updateGrids();
+    }
+
+    private void updateGrids()
+    {
+        SqlDataSource1.DataBind();
+        SqlDataSource2.DataBind();
+        SqlDataSourceBookInstances.DataBind();
+        GridView1.DataBind();
+        GridView2.DataBind();
+        GridView3.DataBind();
+    }
 }

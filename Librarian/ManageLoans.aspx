@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="leftcolumn" Runat="Server">
     <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server"></asp:ScriptManagerProxy>
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="1" BackColor="#F7F6F3" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
+    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" BackColor="#F7F6F3" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em">
         <FinishNavigationTemplate>
             <asp:Button ID="FinishPreviousButton" runat="server" CausesValidation="False" CommandName="MovePrevious" Text="Previous" Visible="False" />
             <asp:Button ID="FinishButton" runat="server" CommandName="MoveComplete" Text="Finish" Visible="false"/>
@@ -28,7 +28,7 @@
         <StepStyle BorderWidth="0px" ForeColor="#5D7B9D" />
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Loans">
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserName, Loans.LoanId, Loans.BookInstanceId, Loans.Date, Loans.DateDue, Loans.ReturnDate, Loans.Renewals, BooksInstances.CallNumber, Books.Isbn, Books.Title FROM Loans INNER JOIN Users ON Loans.UserId = Users.UserId INNER JOIN BooksInstances ON Loans.BookInstanceId = BooksInstances.BookInstanceId INNER JOIN Books ON BooksInstances.BookId = Books.BookId"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserName, Loans.LoanId, Loans.BookInstanceId, Loans.Date, Loans.DateDue, Loans.ReturnDate, Loans.Renewals, BooksInstances.CallNumber, Books.Isbn, Books.Title FROM Loans INNER JOIN Users ON Loans.UserId = Users.UserId INNER JOIN BooksInstances ON Loans.BookInstanceId = BooksInstances.BookInstanceId INNER JOIN Books ON BooksInstances.BookId = Books.BookId ORDER BY Loans.LoanId DESC" EnableCaching="false"></asp:SqlDataSource>
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="LoanId" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
@@ -56,32 +56,47 @@
                 </asp:GridView>
             </asp:WizardStep>
             <asp:WizardStep ID="WizardStep2" runat="server" Title="New Loan">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
+                
                         <asp:Table ID="Table1" runat="server">
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label ID="lblSearchUser" runat="server" Text="Search user"></asp:Label>
-                            </asp:TableCell>
+                            
+
+</asp:TableCell>
                             <asp:TableCell>
                                <asp:TextBox ID="txtSearchUser" runat="server"></asp:TextBox>                       
                                 
-                            </asp:TableCell>
+                            
+
+</asp:TableCell>
                             <asp:TableCell>
                                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
-                            </asp:TableCell>
+                            
+
+</asp:TableCell>
                         </asp:TableRow>
                             <asp:TableRow>
                                 <asp:TableCell>
                                     <asp:Label ID="Label1" runat="server" Text="User:"></asp:Label>
-                                </asp:TableCell>
+                                
+
+</asp:TableCell>
                                 <asp:TableCell>
                                     <asp:Label ID="lblUserInf" runat="server" Text=""></asp:Label>
-                                </asp:TableCell>
+                                
+
+</asp:TableCell>
+                                <asp:TableCell> 
+                                    <asp:Button ID="btnChange" runat="server" Text="Change User" OnClick="btnChange_Click"/>
+                                
+
+</asp:TableCell>
                             </asp:TableRow>
                       </asp:Table>      
                         
-                        
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
                         <asp:Table ID="Table2" runat="server">
                             <asp:TableRow>
                                 <asp:TableCell>
@@ -147,14 +162,16 @@ WHERE (([Isbn] LIKE @Isbn + '%') AND
                                 <asp:ControlParameter ControlID="txtSearchCallNumber" Name="CallNumber" PropertyName="Text" ConvertEmptyStringToNull="false"/>
                             </SelectParameters>
                         </asp:SqlDataSource>
-                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSourceBookInstances" ShowHeaderWhenEmpty="True" EmptyDataText="No results found!" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="BookInstanceId" DataSourceID="SqlDataSourceBookInstances" ShowHeaderWhenEmpty="True" EmptyDataText="No results found!" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True" />
                                 <asp:BoundField DataField="BookId" HeaderText="BookId" InsertVisible="False" ReadOnly="True" SortExpression="BookId" />
                                 <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
                                 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                                <asp:BoundField DataField="BookInstanceId" HeaderText="BookInstanceId" InsertVisible="False" ReadOnly="True" SortExpression="BookInstanceId" />
+                                <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
+                                <asp:BoundField DataField="Summary" HeaderText="Summary" SortExpression="Summary" />
+                                <asp:BoundField DataField="BookInstanceId" HeaderText="BookInstanceId" ReadOnly="True" SortExpression="BookInstanceId" InsertVisible="False" />
                                 <asp:BoundField DataField="CallNumber" HeaderText="CallNumber" SortExpression="CallNumber" />
                                 <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
                                 <asp:BoundField DataField="DateDue" HeaderText="DateDue" ReadOnly="True" SortExpression="DateDue" />
@@ -170,12 +187,15 @@ WHERE (([Isbn] LIKE @Isbn + '%') AND
                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
+                       
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label><br />
+                        <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" />
                 
             </asp:WizardStep>
             <asp:WizardStep runat="server" Title="Return a book">
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserName, Loans.LoanId, Loans.BookInstanceId, Loans.Date, Loans.DateDue,  Loans.Renewals, BooksInstances.CallNumber, Books.Isbn, Books.Title FROM Loans INNER JOIN Users ON Loans.UserId = Users.UserId INNER JOIN BooksInstances ON Loans.BookInstanceId = BooksInstances.BookInstanceId INNER JOIN Books ON BooksInstances.BookId = Books.BookId WHERE Loans.ReturnDate IS NULL;"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserName, Loans.LoanId, Loans.BookInstanceId, Loans.Date, Loans.DateDue,  Loans.Renewals, BooksInstances.CallNumber, Books.Isbn, Books.Title FROM Loans INNER JOIN Users ON Loans.UserId = Users.UserId INNER JOIN BooksInstances ON Loans.BookInstanceId = BooksInstances.BookInstanceId INNER JOIN Books ON BooksInstances.BookId = Books.BookId WHERE Loans.ReturnDate IS NULL;" EnableCaching="false"></asp:SqlDataSource>
                 <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="LoanId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
