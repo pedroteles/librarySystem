@@ -19,9 +19,10 @@ CASE WHEN Fines.Paid = 0 THEN 'No' ELSE 'Yes' END AS [Paid]
             <asp:ControlParameter ControlID="RadioButtonList1" DefaultValue="0" Name="Show" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="LoanId" DataSourceID="SqlDataSource1" ShowHeaderWhenEmpty="True" EmptyDataText="No results!" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="LoanId" DataSourceID="SqlDataSource1" ShowHeaderWhenEmpty="True" EmptyDataText="No results!" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField ShowSelectButton="True" SelectText="Pay"/>
             <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
             <asp:BoundField DataField="LoanId" HeaderText="LoanId" ReadOnly="True" SortExpression="LoanId" />
             <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" ReadOnly="True" />

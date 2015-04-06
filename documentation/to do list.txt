@@ -24,7 +24,7 @@ LIBRARIAN:
 -Manage loans: [EASY]
 	-show loans(ManageLoans.aspx);
 
--Fines(Fines.aspx): -PEDRO-
+-Fines(Fines.aspx): -PEDRO- [done]
 	-Pay a fine;
 
 -Return books (ReturnBooks.aspx): 
