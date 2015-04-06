@@ -22,10 +22,8 @@
 
     <siteMapNode url="~/Librarian/Default.aspx" title="Librarian"  description="Librarian">
       <siteMapNode url="~/Librarian/Fines.aspx" title="Fines"  description="Fines"/>
-      <siteMapNode url="~/Librarian/LoanBooks.aspx" title="Loan Books"  description="Loan Books"/>
       <siteMapNode url="~/Librarian/ManageBooks.aspx" title="Manage Books"  description="Manage Books"/>
       <siteMapNode url="~/Librarian/ManageLoans.aspx" title="Manage Loans"  description="Manage Loans"/>
-      <siteMapNode url="~/Librarian/ReturnBooks.aspx" title="Return Books"  description="Return Books"/>
     </siteMapNode>
 
     <siteMapNode url="~/Member/Default.aspx" title="Member"  description="Member">
@@ -40,10 +38,8 @@
 
     <siteMapNode url="~/Librarian/Default" title="Librarian"  description="Librarian">
       <siteMapNode url="~/Librarian/Fines" title="Fines"  description="Fines"/>
-      <siteMapNode url="~/Librarian/LoanBooks" title="Loan Books"  description="Loan Books"/>
       <siteMapNode url="~/Librarian/ManageBooks" title="Manage Books"  description="Manage Books"/>
       <siteMapNode url="~/Librarian/ManageLoans" title="Manage Loans"  description="Manage Loans"/>
-      <siteMapNode url="~/Librarian/ReturnBooks" title="Return Books"  description="Return Books"/>
     </siteMapNode>
 
     <siteMapNode url="~/Member/Default" title="Member"  description="Member">

@@ -69,7 +69,7 @@ public partial class SiteMaster : MasterPage
     }
     protected void SearchButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Collection.aspx?"+ddlColumn.SelectedValue+"=" +Server.UrlEncode(txtSearch.Text));
+        Response.Redirect("~/Collection.aspx?"+ddlColumn.SelectedValue+"=" +Server.UrlEncode(txtSearch.Text));
     }
 
     protected void Page_LoadComplete(object sender, EventArgs e)
