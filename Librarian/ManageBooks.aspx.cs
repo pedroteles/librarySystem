@@ -78,10 +78,7 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
     {
         InstancesView.ActiveViewIndex = 0;
     }
-    protected void btnNewInstanceSave_Click(object sender, EventArgs e)
-    {
-        InstancesView.ActiveViewIndex = 0;
-    }
+   
     protected void InstancesMenu_MenuItemClick(object sender, MenuEventArgs e)
     {
         Menu mi = (Menu)sender;
@@ -252,6 +249,15 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
         }
     }
 
+    private void saveNewInstance(int bookId, SqlConnection con)
+    {
+        string sql = "INSERT INTO [BooksInstances] ([BookId],[CallNumber]) VALUES (@BookId, @CallNumber)";
+        SqlCommand cmd = new SqlCommand(sql, con);
+        cmd.Parameters.AddWithValue("@BookId", bookId);
+        cmd.Parameters.AddWithValue("@CallNumber", txtCallNumber.Text);
+        cmd.ExecuteNonQuery();
+    }
+
     protected void Wizard1_FinishButtonClick(object sender, WizardNavigationEventArgs e)
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True;Connect Timeout=30;User Instance=False;");
@@ -413,4 +419,57 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
     }
 
 
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        SqlDataSourceSearchBooks.DataBind();
+        GridSearchBook.DataBind();
+    }
+    protected void Wizard2_NextButtonClick(object sender, WizardNavigationEventArgs e)
+    {
+        if (GridSearchBook.SelectedIndex == -1)
+        {
+            e.Cancel = true;
+        }
+    }
+    protected void Wizard2_FinishButtonClick(object sender, WizardNavigationEventArgs e)
+    {
+        if (validateCallNumber())
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True");
+            con.Open();
+            int bookId = int.Parse(GridSearchBook.SelectedDataKey.Value.ToString());
+            saveNewInstance(bookId, con);
+            con.Close();
+            resetNewInstance();
+            SqlDataSource2.DataBind();
+            GridView2.DataBind();
+            InstancesView.ActiveViewIndex = 0;
+            Wizard2.ActiveStepIndex = 0;
+
+           
+        }
+    }
+    private bool validateCallNumber()
+    {
+        lblCallNumberError.Text= "";
+        if (txtCallNumber.Text.Length < 1 || txtCallNumber.Text.Length > 15)
+        {
+            lblCallNumberError.Text = "Minimum 1 and Maximum 15 characters required!";
+            return false;
+        }
+        return true;
+    }
+
+    private void resetNewInstance()
+    {
+        lblCallNumberError.Text = "";
+        txtCallNumber.Text = "";
+    }
+
+    protected void btnCancelInstance_Click(object sender, EventArgs e)
+    {
+        resetNewInstance();
+        InstancesView.ActiveViewIndex = 0;
+        Wizard2.ActiveStepIndex = 0;
+    }
 }
