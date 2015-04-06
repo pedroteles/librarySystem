@@ -17,7 +17,7 @@ LIBRARIAN:
 	-update authors;
 	-update subjects;
 
--manage book instances(ManageBooks.aspx): -PEDRO-
+-manage book instances(ManageBooks.aspx): -PEDRO- [DONE]
 	-insert instances;
 	-update instances;
 
