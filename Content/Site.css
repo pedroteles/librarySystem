@@ -854,3 +854,28 @@ aside {
     
 }
 
+#question {
+    text-align: center;
+    background-color: cadetblue;
+    height:60px;
+    color: white;
+    padding-top:10px;
+}
+
+#faq1 {
+    float: left;
+    padding-top: 80px;
+    width: 350px;
+    height: 180px;
+
+}
+
+#membership {
+    padding-left: 350px;
+    padding-top:10px;
+}
+
+#member {
+    padding-left: 350px;
+}
+

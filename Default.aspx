@@ -45,6 +45,11 @@
                 <asp:Image ID="blogspot" runat="server" ImageUrl="~/Images/blogspot.png" 
                 width="40px" height="40px"/>
            </a>
+
+          <a href="https://www.gmail.com/">
+                <asp:Image ID="google" runat="server" ImageUrl="~/Images/google+.png" 
+                width="40px" height="40px"/>
+           </a>
           <br />
 
            <aside id="aboutside1">
