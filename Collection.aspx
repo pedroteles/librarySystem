@@ -43,18 +43,19 @@ SELECT [b].[BookId], [Isbn], [Title], [Edition], [Summary],	 Subjects = STUFF(
              , 1, 1, '') 
 FROM Books AS [b] WHERE [b].[BookId] in (
 SELECT DISTINCT [b2].[BookId] from Books AS b2 
-INNER JOIN SubjectsInBooks AS sb ON [b2].[BookId]=[sb].[BookId]
-INNER JOIN Subjects AS s ON [s].[SubjectId]=[sb].[SubjectId]
-INNER JOIN AuthorsInBooks AS ab ON [b2].[BookId]=[ab].[BookId]
-INNER JOIN Authors AS a ON [a].[AuthorId]=[ab].[AuthorID]
-WHERE ([SubjectName] LIKE '%' + @Subject + '%') AND 
+LEFT JOIN SubjectsInBooks AS sb ON [b2].[BookId]=[sb].[BookId]
+LEFT JOIN Subjects AS s ON [s].[SubjectId]=[sb].[SubjectId]
+LEFT JOIN AuthorsInBooks AS ab ON [b2].[BookId]=[ab].[BookId]
+LEFT JOIN Authors AS a ON [a].[AuthorId]=[ab].[AuthorID]
+WHERE (([SubjectName] LIKE '%' + @Subject + '%') OR ([SubjectName] IS NULL)) AND 
 (([Isbn] LIKE '%' + @Isbn + '%') AND 
 ([Title] LIKE '%' + @Title + '%')) AND
 (([AuthorFirstName] LIKE + @Author + '%') OR
 ([AuthorSurname] LIKE + @Author + '%') OR
 (+ @Author LIKE [AuthorFirstName]+' '+[AuthorSurname]) OR
 (+ @Author LIKE [AuthorSurname]+' '+[AuthorFirstName]) OR
-([AuthorFirstName]+' '+[AuthorSurname] LIKE + @Author + '%')))" CancelSelectOnNullParameter="False">
+([AuthorFirstName]+' '+[AuthorSurname] LIKE + @Author + '%') OR 
+([AuthorFirstName] IS NULL)))" CancelSelectOnNullParameter="False">
         <SelectParameters>
             <asp:QueryStringParameter Name="Subject" QueryStringField="Subject" DefaultValue="" Type="String" ConvertEmptyStringToNull="False"/>
             <asp:QueryStringParameter Name="Isbn" QueryStringField="ISBN" Type="String" DefaultValue="" ConvertEmptyStringToNull="False"/>

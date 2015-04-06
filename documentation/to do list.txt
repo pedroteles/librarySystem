@@ -4,30 +4,30 @@ ADMIN:
 	-insert a new librarian (or maybe set an existing user as librarian [easier approch]);
 
 LIBRARIAN: 
--loan books(LoanBooks.aspx); [HARD]
+-loan books(LoanBooks.aspx); [HARD] -PEDRO-
 	-dont allow if:
 		- there is a non-paid fine;
 		-limit of itens borrowed;
 	
 
--manage books(ManageBooks.aspx): -PEDRO-
+-manage books(ManageBooks.aspx): -PEDRO- [DONE]
 	-insert authors;
 	-insert subjects;
 	-update book details;
 	-update authors;
 	-update subjects;
 
--manage book instances(ManageBooks.aspx): -PEDRO-
+-manage book instances(ManageBooks.aspx): -PEDRO- [DONE]
 	-insert instances;
 	-update instances;
 
 -Manage loans: [EASY]
 	-show loans(ManageLoans.aspx);
 
--Fines(Fines.aspx): -PEDRO-
+-Fines(Fines.aspx): -PEDRO- [done]
 	-Pay a fine;
 
--Return books (ReturnBooks.aspx): 
+-Return books (ReturnBooks.aspx):  -Pedro- [done]
 	-Show checked out books [EASY];
 	-option to return a book [EASY]
 		-information about fine, if applicable [MEDIUM];
