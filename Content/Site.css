@@ -366,10 +366,12 @@ fieldset.open-auth-providers {
 /* contact */
 .contact h3 {
     font-size: 1.2em;
+    padding-left:30px;
 }
 
 .contact p {
     margin: 5px 0 0 10px;
+    padding-left:30px;
 }
 
 .contact iframe {
@@ -845,3 +847,10 @@ aside {
     border-radius: 10px;
 
 }
+
+#googlemap {
+    float: right;
+    padding-right:80px;
+    
+}
+
