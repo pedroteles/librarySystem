@@ -1,7 +1,8 @@
 ADMIN:
 -message to user when update system parameters(SystemParameters.aspx); [EASY]
--manage librarians (Librarians.aspx); [MEDIUM OR EASY]
-	-insert a new librarian (or maybe set an existing user as librarian [easier approch]);
+-manage librarians (Librarians.aspx); [MEDIUM OR EASY] [done]
+	-insert a new librarian (or maybe set an existing user as librarian [easier approch]);[done]
+-manage users (approve as a member); = [done]
 
 LIBRARIAN: 
 -loan books(LoanBooks.aspx); [HARD] -PEDRO- [done]

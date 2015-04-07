@@ -17,6 +17,7 @@
 
     <siteMapNode url="~/Admin/Default.aspx" title="Admin"  description="Admin">
       <siteMapNode url="~/Admin/Librarians.aspx" title="Librarians"  description="Librarians"/>
+      <siteMapNode url="~/Admin/Members.aspx" title="Members"  description="Members"/>
       <siteMapNode url="~/Admin/SystemParameters.aspx" title="System Parameters"  description="System Parameters"/>
     </siteMapNode>
 
@@ -33,6 +34,7 @@
 
     <siteMapNode url="~/Admin/Default" title="Admin"  description="Admin">
       <siteMapNode url="~/Admin/Librarians" title="Librarians"  description="Librarians"/>
+      <siteMapNode url="~/Admin/Members" title="Members"  description="Members"/>
       <siteMapNode url="~/Admin/SystemParameters" title="System Parameters"  description="System Parameters"/>
     </siteMapNode>
 

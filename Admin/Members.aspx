@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Librarians.aspx.cs" Inherits="Admin_Librarians" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Members.aspx.cs" Inherits="Admin_PendingMembers" %>
 
-<asp:Content ID="Content3" runat="server" contentplaceholderid="leftcolumn">
-    <h3>Set as librarian</h3>
+<asp:Content ID="Content1" ContentPlaceHolderID="leftcolumn" Runat="Server">
+    <h3>Pending Members</h3>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT [u].[UserId], [u].[UserName], [m].[Email] FROM Users AS [u] INNER JOIN Memberships AS [m] ON [u].[UserId] = [m].[UserId] WHERE [u].[UserId] NOT IN (SELECT UserId FROM UsersInRoles)" EnableCaching="false"></asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="UserId" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" ShowHeaderWhenEmpty="True" EmptyDataText="No pending users" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
@@ -22,9 +22,10 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
-    <h3>Librarians</h3>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserId, Users.UserName, Memberships.Email FROM Users INNER JOIN UsersInRoles ON Users.UserId = UsersInRoles.UserId INNER JOIN Memberships ON Users.UserId = Memberships.UserId INNER JOIN Roles ON UsersInRoles.RoleId = Roles.RoleId WHERE (Roles.RoleName = 'librarian')"></asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="UserId" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="true" EmptyDataText="No librarians">
+    <h3>Members</h3>
+
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserId, Users.UserName, Memberships.Email FROM Users INNER JOIN UsersInRoles ON Users.UserId = UsersInRoles.UserId INNER JOIN Memberships ON Users.UserId = Memberships.UserId INNER JOIN Roles ON UsersInRoles.RoleId = Roles.RoleId WHERE (Roles.RoleName = 'member')" EnableCaching="false"></asp:SqlDataSource>
+    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="UserId" DataSourceID="SqlDataSource2" ShowHeaderWhenEmpty="True" EmptyDataText="No users" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
