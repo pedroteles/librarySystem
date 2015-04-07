@@ -28,7 +28,8 @@
     </siteMapNode>
 
     <siteMapNode url="~/Member/Default.aspx" title="Member"  description="Member">
-      <siteMapNode url="~/Member/ManageMyBooks.aspx" title="Manage My Books"  description="Manage My Books"/>
+      <siteMapNode url="~/Member/MySummary.aspx" title="My Summary"  description="My Summary"/>
+      <siteMapNode url="~/Member/MyReadingHistory.aspx" title="My Reading History"  description="My Reading History"/>
       <siteMapNode url="~/Member/MyFines.aspx" title="My Fines"  description="My Fines"/>
     </siteMapNode>
 
@@ -45,7 +46,8 @@
     </siteMapNode>
 
     <siteMapNode url="~/Member/Default" title="Member"  description="Member">
-      <siteMapNode url="~/Member/ManageMyBooks" title="Manage My Books"  description="Manage My Books"/>
+      <siteMapNode url="~/Member/MySummary" title="My Summary"  description="My Summary"/>
+      <siteMapNode url="~/Member/MyReadingHistory" title="My Reading History"  description="My Reading History"/>
       <siteMapNode url="~/Member/MyFines" title="My Fines"  description="My Fines"/>
     </siteMapNode>
 
