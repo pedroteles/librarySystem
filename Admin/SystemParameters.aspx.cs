@@ -54,5 +54,6 @@ public partial class Admin_SystemParameters : System.Web.UI.Page
         cmd.Parameters["@NumberOfDays"].Value = txtNum.Text;
         cmd.ExecuteNonQuery();
         con.Close();
+        Response.Write("<script>alert('Successfully added');</script>");
     }
 }
