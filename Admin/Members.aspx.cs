@@ -26,5 +26,6 @@ public partial class Admin_PendingMembers : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand(sql, con);
         cmd.Parameters.AddWithValue("@UserId", userId);
         cmd.ExecuteNonQuery();
+        con.Close();
     }
 }

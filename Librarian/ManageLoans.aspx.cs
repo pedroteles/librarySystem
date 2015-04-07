@@ -103,7 +103,11 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
                 }
                 if (checkLoansLimit(userNameSelected, con))
                 {
-                    lblUserInf.Text += ": This user has reached the limit of books";
+                    lblUserInf.Text += ": This user has reached the limit of books!";
+                }
+                if (isThereBookOverDue(userNameSelected, con))
+                {
+                    lblUserInf.Text += ": There is a book overdue!";
                 }
             }
             else
@@ -165,6 +169,22 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
         return false;
     }
 
+    private bool isThereBookOverDue(string userName, SqlConnection con)
+    {
+        string sql = "SELECT 1 WHERE EXISTS (SELECT [LoanId] FROM [Loans] INNER JOIN Users ON Loans.UserId = Users.UserId WHERE [DateDue] < dateadd(day,datediff(day,(0),getdate()),(0)) AND ReturnDate IS NULL AND Users.UserName = @UserName)";
+        SqlCommand cmd = new SqlCommand(sql, con);
+        cmd.Parameters.AddWithValue("@UserName", userName);
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.Read())
+        {
+            dr.Close();
+            return true;
+        }
+        dr.Close();
+        return false;
+
+    }
+
 
     protected void btnConfirm_Click(object sender, EventArgs e)
     {
@@ -204,8 +224,15 @@ public partial class Librarian_ManageLoans : System.Web.UI.Page
                         }
                         else
                         {
-                            save(bookInstanceId, userNameSelected,con);
-                            lblMessage.Text = "Success";
+                            if (isThereBookOverDue(userNameSelected, con))
+                            {
+                                lblMessage.Text = "This user cannot borrow books because there is a book overdue!";
+                            }
+                            else
+                            {
+                                save(bookInstanceId, userNameSelected, con);
+                                lblMessage.Text = "Success";
+                            }
                         }
                     }
                 }
