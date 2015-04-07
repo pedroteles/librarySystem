@@ -12,31 +12,34 @@ public partial class Admin_SystemParameters : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True");
-        con.Open();
-
-        using (SqlCommand cmd = new SqlCommand("SELECT [Fine], [MaximumRenewals], [MaximumItens], [NumberOfDays] FROM SystemParameters", con)) 
+        if (!IsPostBack)
         {
-        SqlDataReader dr = cmd.ExecuteReader();
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True");
+            con.Open();
 
-        if (dr.Read())
-        {
-            txtFine.Text = dr["Fine"].ToString();
-            txtMaxR.Text = dr["MaximumRenewals"].ToString();
-            txtMaxIt.Text = dr["MaximumItens"].ToString();
-            txtNum.Text = dr["NumberOfDays"].ToString();
+            using (SqlCommand cmd = new SqlCommand("SELECT [Fine], [MaximumRenewals], [MaximumItens], [NumberOfDays] FROM SystemParameters", con))
+            {
+                SqlDataReader dr = cmd.ExecuteReader();
 
+                if (dr.Read())
+                {
+                    txtFine.Text = dr["Fine"].ToString();
+                    txtMaxR.Text = dr["MaximumRenewals"].ToString();
+                    txtMaxIt.Text = dr["MaximumItens"].ToString();
+                    txtNum.Text = dr["NumberOfDays"].ToString();
+
+                }
+
+                dr.Close();
+            }
+            con.Close();
         }
-
-        dr.Close();
-        }
-        con.Close();
-
+       
 
     }
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
-
+        lblMessage.Text = "";
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True");
         con.Open();
         string sql = "UPDATE SystemParameters SET [Fine] = @Fine, [MaximumRenewals] = @MaximumRenewals, [MaximumItens] = @MaximumItens, [NumberOfDays] = @NumberOfDays";
@@ -46,9 +49,8 @@ public partial class Admin_SystemParameters : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@MaximumRenewals", txtMaxR.Text);
         cmd.Parameters.AddWithValue("@MaximumItens", txtMaxIt.Text);
         cmd.Parameters.AddWithValue("@NumberOfDays", txtNum.Text);
-
         cmd.ExecuteNonQuery();
         con.Close();
-        Response.Write("<script>alert('Successfully AddWithValueed');</script>");
+        lblMessage.Text = "Saved!";
     }
 }

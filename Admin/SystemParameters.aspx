@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SystemParameters.aspx.cs" Inherits="Admin_SystemParameters" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="leftcolumn" Runat="Server">
+    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server"></asp:ScriptManagerProxy>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
     <table style="width: 100%">
             <tr>
                 <td>
@@ -8,7 +11,7 @@
                 </td>
                 <td>
         <asp:TextBox ID="txtFine" runat="server" ></asp:TextBox>
-        <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="this is not a decimal" ControlToValidate="txtFine" Type="Currency" MaximumValue="20" MinimumValue="0" Visible="True"></asp:RangeValidator>
+      <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="This is not an number!" ControlToValidate="txtFine" Type="Double" MaximumValue="20" MinimumValue="0"></asp:RangeValidator>
                 </td>
             </tr>
             <tr>
@@ -45,13 +48,15 @@
             </tr>
             <tr>
                 <td>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT [Fine], [MaximumRenewals], [MaximumItens], [NumberOfDays] FROM [SystemParameters]"></asp:SqlDataSource>
-                </td>
+                    &nbsp;</td>
                 <td>
         <asp:Button ID="btnsubmit" runat="server" Text="Submit" OnClick="btnsubmit_Click" />
+                    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                 </td>
             </tr>
         </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 </asp:Content>
 
 
