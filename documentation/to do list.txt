@@ -34,12 +34,11 @@ LIBRARIAN:
 		-information about fine, if applicable [MEDIUM];[done]
 
 MEMBER: 
--show my books (history and checked out books); [EASY]
--renew a book: [MEDIUM OR HARD]
-	-check for fines [EASY];
-	-check for the number of renewals [MEDIUM OR HARD];
--my fines (MyFines.aspx) [EASY]
-	-pending fines;
+-show my books (history and checked out books); [EASY] [DONE]
+-renew a book: [MEDIUM OR HARD] -[DONE]
+	-check for fines [EASY];[DONE]
+	-check for the number of renewals [MEDIUM OR HARD];[DONE]
+-my fines (MyFines.aspx) [EASY] [DONE]
 
 
 -Future functionalities:
