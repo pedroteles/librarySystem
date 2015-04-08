@@ -23,7 +23,7 @@
     </asp:GridView>
 
     <h3>Librarians</h3>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserId, Users.UserName, Memberships.Email FROM Users INNER JOIN UsersInRoles ON Users.UserId = UsersInRoles.UserId INNER JOIN Memberships ON Users.UserId = Memberships.UserId INNER JOIN Roles ON UsersInRoles.RoleId = Roles.RoleId WHERE (Roles.RoleName = 'librarian')"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT Users.UserId, Users.UserName, Memberships.Email FROM Users INNER JOIN UsersInRoles ON Users.UserId = UsersInRoles.UserId INNER JOIN Memberships ON Users.UserId = Memberships.UserId INNER JOIN Roles ON UsersInRoles.RoleId = Roles.RoleId WHERE (Roles.RoleName = 'librarian')" EnableCaching="false"></asp:SqlDataSource>
     <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="UserId" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="true" EmptyDataText="No librarians">
         <AlternatingRowStyle BackColor="White" />
         <Columns>

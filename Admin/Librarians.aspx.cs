@@ -17,7 +17,9 @@ public partial class Admin_Librarians : System.Web.UI.Page
     {
         string userId = GridView1.SelectedDataKey.Value.ToString();
         setAsLibrarian(userId);
+
         GridView1.DataBind();
+        GridView2.DataBind();
     }
     private void setAsLibrarian(string userId)
     {

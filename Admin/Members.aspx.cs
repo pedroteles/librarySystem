@@ -17,7 +17,9 @@ public partial class Admin_PendingMembers : System.Web.UI.Page
     {
         string userId = GridView1.SelectedDataKey.Value.ToString();
         setAsMember(userId);
-        GridView1.DataBind();    }
+        GridView1.DataBind();
+        GridView2.DataBind();
+    }
     private void setAsMember(string userId)
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-librarySystem-20150310153417.mdf;Integrated Security=True;Connect Timeout=30;User Instance=False;");

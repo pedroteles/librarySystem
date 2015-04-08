@@ -320,6 +320,7 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
             tableAuthors.Remove(lstNewAuthors.SelectedValue);
             updateLstNewAuthors();
         }
+        
     }
     protected void Wizard1_NextButtonClick(object sender, WizardNavigationEventArgs e)
     {
@@ -397,7 +398,7 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
         SqlDataReader dr = cmd.ExecuteReader();
         while (dr.Read())
         {
-            tableAuthors.Add(int.Parse(dr["AuthorId"].ToString()), dr["AuthorFirstName"].ToString() + " " + dr["AuthorSurname"].ToString());
+            tableAuthors.Add((dr["AuthorId"].ToString()), dr["AuthorFirstName"].ToString() + " " + dr["AuthorSurname"].ToString());
         }
         dr.Close();
         updateLstNewAuthors();
@@ -412,7 +413,7 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
         SqlDataReader dr = cmd.ExecuteReader();
         while (dr.Read())
         {
-            tableSubjects.Add(int.Parse(dr["SubjectId"].ToString()), dr["SubjectName"].ToString());
+            tableSubjects.Add((dr["SubjectId"].ToString()), dr["SubjectName"].ToString());
         }
         dr.Close();
         updateLstNewSubjects();

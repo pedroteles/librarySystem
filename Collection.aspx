@@ -106,7 +106,7 @@ ORDER BY [b].[Title]">
         </SelectParameters>
     </asp:SqlDataSource>
     <br />
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="true" EmptyDataText="No results found!">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="true">
         <AlternatingRowStyle BackColor="White"/>
         <Columns>
             <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />

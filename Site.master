@@ -17,7 +17,7 @@
 </head>
 <body>
     
-    <form runat="server">
+    <form runat="server" defaultbutton="btnDisableEnter">
     <asp:ScriptManager runat="server">
         <Scripts>
             <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>
@@ -137,6 +137,7 @@
             <strong>Email:</strong> 
                 librarysystem@gmail.com<span></span>
             </div>
+        <asp:Button ID="btnDisableEnter" runat="server" Text="" OnClientClick="return false;" style="display:none;"/>
                
     </footer>
         
