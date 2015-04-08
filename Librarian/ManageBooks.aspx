@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Librarian/Librarian.master" AutoEventWireup="true" CodeFile="ManageBooks.aspx.cs" Inherits="Librarian_ManageBooks" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="leftcolumn" Runat="Server">
-    <asp:Menu ID="Menu1" Width="168px" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False" OnMenuItemClick="Menu1_MenuItemClick">
+    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False" OnMenuItemClick="Menu1_MenuItemClick">
         <Items>
-            <asp:MenuItem ImageUrl="../Images/orderedList0.png" 
-                          Text="Books" Value="0"></asp:MenuItem>
+            <asp:MenuItem ImageUrl="../Images/orderedList2.png" 
+                          Text="&nbsp&nbspBOOKS&nbsp&nbsp" Value="0"></asp:MenuItem>
             <asp:MenuItem ImageUrl="../Images/orderedList1.png" 
-                          Text="Instances" Value="1"></asp:MenuItem>
+                          Text="&nbsp&nbspINSTANCES" Value="1"></asp:MenuItem>
         </Items>
     </asp:Menu>
 
