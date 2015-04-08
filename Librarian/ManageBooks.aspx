@@ -119,7 +119,7 @@ FROM Books AS [b]" EnableCaching="false"></asp:SqlDataSource>
                                                          
 
                                    
-                               <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT [AuthorId], AuthorFirstName+' ' +AuthorSurname AS [AuthorName] FROM [Authors]"></asp:SqlDataSource>
+                               <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT [AuthorId], AuthorFirstName+' ' +AuthorSurname AS [AuthorName] FROM [Authors] ORDER BY AuthorFirstName, AuthorSurname"></asp:SqlDataSource>
                                <asp:Label ID="Label1" runat="server" Text="All Authors"></asp:Label><br />
                                <asp:ListBox ID="lstNewAllAuthors" runat="server" DataSourceID="SqlDataSource3" DataTextField="AuthorName" DataValueField="AuthorId"></asp:ListBox>
                                <asp:Button ID="btnNewAuthorAdd" runat="server" Text="Add" OnClick="btnNewAuthorAdd_Click"/>
@@ -141,7 +141,7 @@ FROM Books AS [b]" EnableCaching="false"></asp:SqlDataSource>
                               
                            </asp:WizardStep>
                            <asp:WizardStep runat="server" Title="Subjects">
-                               <asp:SqlDataSource ID="SqlDataSourceSubjects" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT * FROM [Subjects]"></asp:SqlDataSource>
+                               <asp:SqlDataSource ID="SqlDataSourceSubjects" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryDatabase %>" SelectCommand="SELECT * FROM [Subjects] ORDER BY [SubjectName]"></asp:SqlDataSource>
                                <asp:Label ID="lblAllNewSubjects" runat="server" Text="All Subjects"></asp:Label><br />
                                <asp:ListBox ID="lstNewAllSubjects" runat="server" DataSourceID="SqlDataSourceSubjects" DataTextField="SubjectName" DataValueField="SubjectId"></asp:ListBox>
                                <asp:Button ID="btnAddNewSubject" runat="server" Text="Add" OnClick="btnAddNewSubject_Click" /><br />

@@ -473,4 +473,5 @@ public partial class Librarian_ManageBooks : System.Web.UI.Page
         InstancesView.ActiveViewIndex = 0;
         Wizard2.ActiveStepIndex = 0;
     }
+    
 }
