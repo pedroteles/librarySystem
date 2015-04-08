@@ -5,7 +5,7 @@
 
 <asp:Content runat="server" ID="Content2" ContentPlaceHolderID="BodyContent">
 
-    <aside id="collectionpage">
+      <aside id="collectionpage">
         <h3 id="collection1">Database Online</h3>
 
         <div id="collectionside">
@@ -20,8 +20,7 @@
             <li><a href="http://www.jstor.org/action/showJournals?browseType=collectionInfoPage&amp;selectCollection=ireland" title="The Ireland Collection (links to external site) ">Ireland Collection</a> </li>
         </ul>
             </div>
-    </aside>    
-
+    </aside> 
  </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -130,4 +129,6 @@ ORDER BY [b].[Title]">
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 </div>
+
+
 </asp:Content>

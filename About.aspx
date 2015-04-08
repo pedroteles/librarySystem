@@ -5,10 +5,8 @@
     <img id="about" src="Images/about1.png"  />
     <aside id="aboutside">
 
-        <h3>Aside Title</h3>
-        <p>        
-         additional information.
-        </p>
+        <h3>MENU</h3>
+       
         <ul>
             <li><a id="A1" runat="server" href="~/">Home</a></li>
             <li><a id="A2" runat="server" href="~/About">About</a></li>
