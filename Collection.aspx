@@ -64,7 +64,7 @@ WHERE (([SubjectName] LIKE '%' + @Subject + '%') OR ([SubjectName] IS NULL)) AND
         
 </asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
-        DataKeyNames="BookId" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+        DataKeyNames="BookId" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="true" EmptyDataText="No results found!">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -106,7 +106,7 @@ ORDER BY [b].[Title]">
         </SelectParameters>
     </asp:SqlDataSource>
     <br />
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId,BookInstanceId" DataSourceID="SqlDataSource2" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="true" EmptyDataText="No results found!">
         <AlternatingRowStyle BackColor="White"/>
         <Columns>
             <asp:BoundField DataField="Isbn" HeaderText="Isbn" SortExpression="Isbn" />
