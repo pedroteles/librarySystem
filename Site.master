@@ -97,7 +97,7 @@
          <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
              
              <div style="padding-left:500px">
-            <asp:Label ID="Select" runat="server" Text="Select Category"></asp:Label> 
+            <asp:Label ID="Select" runat="server" Text="Select Category" ></asp:Label> 
         <asp:DropDownList ID="ddlColumn" runat="server">
             <asp:ListItem Selected="True">Title</asp:ListItem>
             <asp:ListItem>ISBN</asp:ListItem>

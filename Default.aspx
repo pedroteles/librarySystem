@@ -23,8 +23,8 @@
             9:00 am - 5:00pm<br />
             9:00 am - 5:00pm<br />
             9:00 am - 3:00pm<br />
-            CLOSE<br />
-            CLOSE<br />
+            CLOSED<br />
+            CLOSED<br />
             </asp:TableCell> 
             </asp:TableRow>
           </asp:Table>

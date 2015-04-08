@@ -157,6 +157,7 @@ footer {
     font-size: .85em;
     margin: 0 0 10px;
     text-align: right;
+     color: white;
 }
 
     #login a {
@@ -165,12 +166,14 @@ footer {
         margin-right: 3px;
         padding: 2px 3px;
         text-decoration: none;
+       
     }
 
     #login a.username {
         background: none;
         margin-left: 0px;
         text-decoration: underline;
+        color: white;
     }
 
     #login ul {
@@ -879,6 +882,10 @@ aside {
     padding-left: 350px;
 }
 
+#Select {
+    color: white;
+}
+
  /* new CSS layout MEMBER
     ----------------------------------------------------------*/
 
@@ -887,6 +894,12 @@ aside {
     width: 600px;
     height: 450px;
     border-radius: 50px 20px;
+}
+
+#welcome {
+    width: 600px;
+    padding-left: 30px;
+      
 }
 
 /* new CSS layout ADMIN
