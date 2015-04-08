@@ -3,27 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
-    
-    <div id="2col">
-      <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
-      </asp:ContentPlaceHolder>
-      <asp:ContentPlaceHolder ID="rightcolumn" runat="server">
-          
-              <aside>
+
+     <aside>
                   <h3>ADMIN PAGE </h3>
                   <p>
                       Set and Control library Parameters
                   </p>
-                  <ul>
-                      <li><a id="A3" runat="server" href="~/Admin/Librarians.aspx">Librarians</a></li>
-                      <li><a id="A2" runat="server" href="~/Admin/Members.aspx">Members</a></li>
-                      <li><a id="A1" runat="server" href="~/Admin/SystemParameters.aspx">System Parameter</a></li>
+                 <ul>
+                      <li><a id="A4" runat="server" href="~/Admin/Librarians.aspx">Librarians</a></li>
+                      <li><a id="A5" runat="server" href="~/Admin/Members.aspx">Members</a></li>
+                      <li><a id="A6" runat="server" href="~/Admin/SystemParameters.aspx">System Parameter</a></li>
                   </ul>
-              </aside>
-          
+       </aside>
+    <img id="admin" src="../Images/admin.png" />
+   
+     <div id="2col">
+      <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
       </asp:ContentPlaceHolder>
+     
 </div>
 </asp:Content>
 

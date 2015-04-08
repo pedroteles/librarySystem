@@ -743,7 +743,7 @@ tr.pager td {
 /* END: Mobile Styles */
 
 
- /* new CSS layout
+ /* new CSS layout MASTER PAGE
     ----------------------------------------------------------*/
 
 
@@ -879,3 +879,52 @@ aside {
     padding-left: 350px;
 }
 
+ /* new CSS layout MEMBER
+    ----------------------------------------------------------*/
+
+#myaccount {
+    background-color: cadetblue;
+    width: 600px;
+    height: 450px;
+    border-radius: 50px 20px;
+}
+
+/* new CSS layout ADMIN
+    ----------------------------------------------------------*/
+
+#systemparameter {
+    text-align:center;
+    background-color: cadetblue;
+    width: 600px;
+    border-radius: 50px 20px;
+    align-items:center;
+}
+
+#admin {
+    width: 600px;
+    height: 150px;
+   
+}
+
+#roles{
+    padding-left: 100px;
+    font-family:Calibri;
+}
+
+/* new CSS layout LIBRARIAN
+    ----------------------------------------------------------*/
+
+#managebook {
+    padding-bottom: 30px;
+}
+
+
+#librarian1 {
+    padding-left: 100px;
+    font-family: Calibri;
+}
+
+#librarian {
+    width: 600px;
+    height: 150px;
+}

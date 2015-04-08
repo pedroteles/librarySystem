@@ -4,12 +4,11 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+    
+    
         
     <div id="2col">
-      <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
-      </asp:ContentPlaceHolder>
-      <asp:ContentPlaceHolder ID="rightcolumn" runat="server">
-        <aside>
+        <aside id="managebook">
         <h3>Librarian Page</h3>
         <p>        
             Manage and Loan books in the library System
@@ -21,6 +20,10 @@
         </ul>
    
 	</aside>
+
+     <img id="librarian" src="../Images/librarian.png" /> <br />
+
+      <asp:ContentPlaceHolder ID="leftcolumn" runat="server">
       </asp:ContentPlaceHolder>
 </div>
     
